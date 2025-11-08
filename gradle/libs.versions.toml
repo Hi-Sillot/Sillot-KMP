@@ -1,0 +1,266 @@
+[versions]
+agp = "8.9.1"
+androidGradlePlugin = "7.4.2"
+# kotlin_v 设为 1.9+ 会报错 Inconsistent JVM-target compatibility detected for tasks 'compileDebugJavaWithJavac' (17) and 'kaptGenerateStubsDebugKotlin' (1.8).
+# kotlin 2.0+ 不需要手动对齐 Compose Compiler 版本  REF https://developer.android.com/jetpack/androidx/releases/compose-kotlin?hl=zh-cn
+
+kotlin = "2.1.21"
+coreKtx = "1.13.1"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+appcompat = "1.6.1"
+material = "1.10.0"
+
+cascade = "2.3.0"
+coilKtCoil = "2.7.0"
+colormath = "3.6.0"
+colorpickerCompose = "1.1.2"
+commonmark = "0.22.0"
+commonsIo = "2.16.1"
+comSquareupRetrofit2ConverterGson2 = "2.11.0"
+comSquareupOkhttp3Okhttp2 = "4.12.0"
+comSquareupRetrofit2Retrofit2 = "2.11.0"
+cnJiguangSdkJcore2 = "4.7.3"
+cnJiguangSdkJpush2 = "5.4.2"
+comTencentBuglyCrashreport = "4.1.9.3"
+comTencentMmkv = "1.3.9"
+dialogx = "0.0.50.beta16.3"
+easywindow = "10.62"
+eventbus = "3.3.1"
+fileselector = "2.1.6"
+githubGsyvideoplayer = "11.1.0"
+googlAaccompanist = "0.34.0"
+androidxBiometricKtx = "1.4.0-alpha02"
+androidxFragment = "1.8.2"
+androidxWindowWindow = "1.4.0-alpha01"
+androidxWorkWork = "2.10.0-alpha02"
+ioKtorKtor = "3.2.3"
+jsoupJsoup = "1.18.1"
+ketch = "1.0.0"
+realmKotlinLib = "3.2.9"
+kotlinxCoroutinesCoreVersion = "1.8.1"
+kotlinxSerializationJsonVersion = "1.9.0"
+lifecycle = "2.8.3"
+logcat = "11.86"
+louiscadSplittiesSystemservicesVersion = "3.0.0"
+rxjava = "3.1.8"
+rxkotlin = "3.0.1"
+rxandroid = "3.0.2"
+moshi = "1.15.1"
+swiperefreshlayout = "1.1.0"
+tencentRfixAndroidLibVersion = "2.0.0-beta2"
+tencentReshubSdkVersion = "1.8.19-RC02"
+toasterVersion = "12.6"
+ultimatebarxVersion = "0.8.0"
+upgradeVersion = "2.2.2-RC01"
+webkit = "1.12.0-alpha02"
+workRuntime = "2.9.0"
+roomCompiler = "2.6.1"
+annotation = "1.9.0-alpha02"
+composeBom = "2024.08.00" # https://developer.android.google.cn/develop/ui/compose/bom/bom-mapping?hl=en
+navigation = '2.7.7'
+xxpermissionsVersion = "20.0"
+zxingLite = "3.2.0"
+kotlinStdlib = "2.2.0"
+kotlinTest = "2.2.0"
+runner = "1.5.2"
+core = "1.5.0"
+jetbrainsKotlinJvm = "2.2.0"
+
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# ===================== Project level dependencies ==================
+gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+# ===================== AndroidX =======================
+# ----------------- Compose -----------------
+# 使用 BOM 管理 Compose 版本，单独的依赖不再需要指定版本号
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+#    REF https://developer.android.com/develop/ui/compose/setup?hl=zh-cn#groovy
+#    Material Design 3
+androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
+# Optional - Integration with RxJava
+androidx-compose-runtime-rxjava3 = { module = "androidx.compose.runtime:runtime-rxjava3" }
+# Optional - Integration with LiveData
+androidx-compose-runtime-livedata = { module = "androidx.compose.runtime:runtime-livedata" }
+# Optional - Add window size utils
+androidx-compose-material3-window-size = { module = "androidx.compose.material3:material3-window-size-class" }
+# Optional - Add full set of material icons
+androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
+androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+#    Android Studio Preview support
+#    REF https://developer.android.com/develop/ui/compose/tooling?hl=zh-cn#bom
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+
+# Kotlin实现指纹识别
+androidx-biometric-biometric-ktx = { module = "androidx.biometric:biometric-ktx", version.ref = "androidxBiometricKtx" }
+androidx-fragment-fragment = { module = "androidx.fragment:fragment", version.ref = "androidxFragment" }
+# Kotlin language
+androidx-fragment-fragment-ktx2 = { module = "androidx.fragment:fragment-ktx", version.ref = "androidxFragment" }
+# Compose
+androidx-fragment-fragment-compose2 = { module = "androidx.fragment:fragment-compose", version.ref = "androidxFragment" }
+
+androidx-lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "lifecycle" }
+# Optional - Integration with ViewModels
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose" }
+
+# Java language
+androidx-navigation-fragment-java = { module = "androidx.navigation:navigation-fragment", version.ref = "navigation" }
+androidx-navigation-ui-java = { module = "androidx.navigation:navigation-ui", version.ref = "navigation" }
+# Kotlin language
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
+# Feature module Support
+androidx-navigation-dynamic-features-fragment = { module = "androidx.navigation:navigation-dynamic-features-fragment", version.ref = "navigation" }
+#　Jetpack Compose Integration
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+#  https://developer.android.google.cn/jetpack/androidx/releases/webkit?hl=zh-cn
+androidx-webkit = { module = "androidx.webkit:webkit", version.ref = "webkit" }
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
+
+# For RxJava3 integration
+androidx-window-window-rxjava36 = { module = "androidx.window:window-rxjava3", version.ref = "androidxWindowWindow" }
+# For Java-friendly APIs to register and unregister callbacks
+androidx-window-window-java6 = { module = "androidx.window:window-java", version.ref = "androidxWindowWindow" }
+# https://developer.android.google.cn/jetpack/androidx/releases/window?hl=zh-cn
+androidx-window-window6 = { module = "androidx.window:window", version.ref = "androidxWindowWindow" }
+#  https://developer.android.google.cn/jetpack/androidx/releases/work?hl=zh-cn
+#  Kotlin + coroutines
+# https://developer.android.google.cn/kotlin/ktx?hl=zh-cn#workmanager
+androidx-work-work-runtime-ktx3 = { module = "androidx.work:work-runtime-ktx", version.ref = "androidxWorkWork" }
+# optional - Multi Process support
+androidx-work-work-multiprocess3 = { module = "androidx.work:work-multiprocess", version.ref = "androidxWorkWork" }
+
+# Optional - Integration with activities
+androidx-activity-compose = { module = "androidx.activity:activity-compose" }
+
+# https://developer.android.google.cn/studio/write/annotations?hl=zh-cn
+androidx-annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
+
+# Don't forget to include Room annotation compiler from Google.
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "workRuntime" }
+
+# ===================== Google ========================
+cascade-compose = { module = "me.saket.cascade:cascade-compose", version.ref = "cascade" }
+cascade = { module = "me.saket.cascade:cascade", version.ref = "cascade" }
+cn-jiguang-sdk-jpush3 = { module = "cn.jiguang.sdk:jpush", version.ref = "cnJiguangSdkJpush2" }
+cn-jiguang-sdk-jcore3 = { module = "cn.jiguang.sdk:jcore", version.ref = "cnJiguangSdkJcore2" }
+
+colormath = { module = "com.github.ajalt.colormath:colormath", version.ref = "colormath" }
+colormath-ext-android-color = { module = "com.github.ajalt.colormath:colormath-ext-android-color", version.ref = "colormath" }
+colormath-ext-android-colorint = { module = "com.github.ajalt.colormath:colormath-ext-android-colorint", version.ref = "colormath" }
+colormath-ext-jetpack-compose = { module = "com.github.ajalt.colormath:colormath-ext-jetpack-compose", version.ref = "colormath" }
+colorpicker-compose = { module = "com.github.skydoves:colorpicker-compose", version.ref = "colorpickerCompose" }
+
+com-github-carguo-gsyvideoplayer-gsyvideoplayer = { module = "io.github.carguo:gsyvideoplayer", version.ref = "githubGsyvideoplayer" }
+com-louiscad-splitties-splitties-systemservices2 = { module = "com.louiscad.splitties:splitties-systemservices", version.ref = "louiscadSplittiesSystemservicesVersion" }
+
+com-squareup-retrofit2-retrofit3 = { module = "com.squareup.retrofit2:retrofit", version.ref = "comSquareupRetrofit2Retrofit2" }
+com-squareup-okhttp3-okhttp3 = { module = "com.squareup.okhttp3:okhttp", version.ref = "comSquareupOkhttp3Okhttp2" }
+com-squareup-retrofit2-converter-gson3 = { module = "com.squareup.retrofit2:converter-gson", version.ref = "comSquareupRetrofit2ConverterGson2" }
+com-tencent-bugly-crashreport2 = { module = "com.tencent.bugly:crashreport", version.ref = "comTencentBuglyCrashreport" }
+com-tencent-mmkv3 = { module = "com.tencent:mmkv", version.ref = "comTencentMmkv" }
+
+# https://shiply.tds.qq.com/docs/doc?id=4010893730
+#com-tencent-shiply-reshub-patch-sdk = { module = "com.tencent.shiply:reshub-patch-sdk", version.ref = "tencentReshubSdkVersion" } # 可选，差量更新SDK
+#com-tencent-shiply-reshub-report = { module = "com.tencent.shiply:reshub-report", version.ref = "tencentReshubSdkVersion" } # 可选，默认的上报SDK
+#com-tencent-shiply-reshub-net = { module = "com.tencent.shiply:reshub-net", version.ref = "tencentReshubSdkVersion" } # 可选，默认的简单网络下载实现
+#com-tencent-shiply-reshub-sdk = { module = "com.tencent.shiply:reshub-sdk", version.ref = "tencentReshubSdkVersion" } # ResHub核心SDK
+
+# https://github.com/Hi-Windom/Sillot/issues/994 RFix 暂不支持 ksp ，等待适配
+#com-tencent-rfix-rfix-android-anno2 = { module = "com.tencent.rfix:RFix-android-anno", version.ref = "tencentRfixAndroidLibVersion" }
+#com-tencent-rfix-rfix-android-lib2 = { module = "com.tencent.rfix:RFix-android-lib", version.ref = "tencentRfixAndroidLibVersion" }
+
+# https://shiply.tds.qq.com/docs/doc?id=4008331373
+shiply-upgrade = { module = "com.tencent.shiply:upgrade", version.ref = "upgradeVersion" }
+shiply-upgrade-ui = { module = "com.tencent.shiply:upgrade-ui", version.ref = "upgradeVersion" }
+shiply-upgrade-diff-pkg-patch = { module = "com.tencent.shiply:upgrade-diff-pkg-patch", version.ref = "upgradeVersion" }
+
+#    // DialogX-mavenCentral
+#    // implementation "com.kongzue.dialogx:DialogX:0.0.49"
+#    // implementation "com.kongzue.dialogx.style:DialogXMIUIStyle:0.0.49"
+#    // DialogX-Jitpack
+dialogx = { module = "com.github.kongzue.DialogX:DialogX", version.ref = "dialogx" }
+dialogxmiuistyle = { module = "com.github.kongzue.DialogX:DialogXMIUIStyle", version.ref = "dialogx" }
+
+commons-io = { module = "commons-io:commons-io", version.ref = "commonsIo" }
+
+# 悬浮窗框架：https://github.com/getActivity/EasyWindow
+easywindow = { module = "com.github.getActivity:EasyWindow", version.ref = "easywindow" }
+commonmark = { module = "org.commonmark:commonmark", version.ref = "commonmark" }
+eventbus = { module = "org.greenrobot:eventbus", version.ref = "eventbus" }
+fileselector = { module = "com.github.ZLYang110:FileSelector", version.ref = "fileselector" }
+# 吐司框架：https://github.com/getActivity/Toaster
+getactivity-toaster = { module = "com.github.getActivity:Toaster", version.ref = "toasterVersion" }
+#  权限请求框架：https://github.com/getActivity/XXPermissions
+getactivity-xxpermissions = { module = "com.github.getActivity:XXPermissions", version.ref = "xxpermissionsVersion" }
+
+io-coil-kt-coil-compose2 = { module = "io.coil-kt:coil-compose", version.ref = "coilKtCoil" }
+io-coil-kt-coil2 = { module = "io.coil-kt:coil", version.ref = "coilKtCoil" }
+
+io-ktor-ktor-serialization-kotlinx-json4 = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ioKtorKtor" }
+io-ktor-ktor-client-serialization4 = { module = "io.ktor:ktor-client-serialization", version.ref = "ioKtorKtor" }
+io-ktor-ktor-client-cio4 = { module = "io.ktor:ktor-client-cio", version.ref = "ioKtorKtor" }
+io-ktor-ktor-client-core4 = { module = "io.ktor:ktor-client-core", version.ref = "ioKtorKtor" }
+io-ktor-ktor-server-content-negotiation4 = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ioKtorKtor" }
+io-ktor-ktor-server-core4 = { module = "io.ktor:ktor-server-core", version.ref = "ioKtorKtor" }
+io-ktor-ktor-server-cio4 = { module = "io.ktor:ktor-server-cio", version.ref = "ioKtorKtor" }
+
+jetbrains-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJsonVersion" }
+jetbrains-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCoreVersion" }
+ketch = { module = "com.github.khushpanchal:Ketch", version.ref = "ketch" }
+
+#realm-kotlin-library-sync = { module = "io.realm.kotlin:library-sync", version.ref = "realmKotlinLib" } # 已弃用
+#realm-kotlin-library-base = { module = "io.realm.kotlin:library-base", version.ref = "realmKotlinLib" } # 已弃用
+#realm-kotlin-cinterop = { module = "io.realm.kotlin:cinterop", version.ref = "realmKotlinLib" } # 已弃用
+realm-kotlin-library-base = { module = "io.github.xilinjia.krdb:library-base", version.ref = "realmKotlinLib" } # 社区版
+
+# 日志调试框架：https://github.com/getActivity/Logcat
+logcat = { module = "com.github.getActivity:Logcat", version.ref = "logcat" }
+
+# Java language
+accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "googlAaccompanist" }
+# 仅用于 Jetpack Compose 动态权限申请
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "googlAaccompanist" }
+
+moshi-kotlin-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
+moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
+
+org-jsoup-jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoupJsoup" }
+rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
+rxkotlin = { module = "io.reactivex.rxjava3:rxkotlin", version.ref = "rxkotlin" }
+rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
+
+
+zackratos-ultimatebarx = { module = "com.gitee.zackratos:UltimateBarX", version.ref = "ultimatebarxVersion" }
+zxing-lite = { module = "com.github.jenly1314:zxing-lite", version.ref = "zxingLite" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinStdlib" }
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlinTest" }
+androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
+androidx-core = { group = "androidx.test", name = "core", version.ref = "core" }
+
+[plugins]
+# alias(libs.plugins.android.application)
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+# alias(libs.plugins.android.library)
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidGradlePlugin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+

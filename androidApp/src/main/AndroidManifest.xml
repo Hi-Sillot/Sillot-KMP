@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--<manifest xmlns:android="http://schemas.android.com/apk/res/android">-->
+
+<!--    <uses-permission android:name="android.permission.INTERNET" />-->
+
+<!--    <application-->
+<!--        android:name=".KRApplication"-->
+<!--        android:allowBackup="false"-->
+<!--        android:networkSecurityConfig="@xml/network_security_config"-->
+<!--        android:supportsRtl="true"-->
+<!--        android:theme="@style/Theme.AppCompat.NoActionBar">-->
+<!--        <activity-->
+<!--            android:name=".KuiklyRenderActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--    </application>-->
+<!--</manifest>-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.picture_in_picture"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.webview"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.usb.host" />
+
+    <queries>
+        <package android:name="sc.hwd.sillot.kmp" />
+        <package android:name="sc.hwd.sillot.kmp.salvation" />
+        <package android:name="sc.hwd.sillot.kmp.damnation" />
+        <!-- 查询 MIUI 的特定包 -->
+        <package android:name="com.miui.gallery" />
+        <!-- 查询 OriginOS 的特定包 -->
+        <package android:name="com.vivo.gallery" />
+        <package android:name="com.vivo.moodcube" />
+        <package android:name="com.vivo.xspace" />
+        <package android:name="com.vivo.ai.copilot" />
+        <package android:name="com.vivo.pcsuite" />
+    </queries> <!-- https://developer.android.com/training/package-visibility/use-cases?hl=zh-cn -->
+    <queries>
+
+        <intent>
+            <action android:name="sc.hwd.sillot.gibbet.services.GibbetKernelService"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent>
+
+        <!-- 指定能够打开的链接类型 -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="sillot" />
+        </intent>
+        <!-- 指定能够打开的链接类型 -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="siyuan" />
+        </intent>
+        <!-- 指定能够打开的链接类型 -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="slld246" />
+        </intent>
+        <!-- 指定能够打开的链接类型 -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="mqq" />
+        </intent>
+        <!-- 指定能够打开的链接类型 -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="wtloginmqq" />
+        </intent>
+        <!-- 指定能够打开的链接类型 -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="sinaweibo" />
+        </intent>
+        <!-- 检查浏览器是否可用 -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="https" />
+        </intent>
+        <!-- 连接到文字转语音引擎 -->
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+        <!-- 连接到语音识别服务 -->
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+        <!-- 连接到媒体浏览器服务 -->
+        <intent>
+            <action android:name="android.media.browse.MediaBrowserService" />
+        </intent>
+        <!--
+         创建自定义共享表单
+         https://developer.android.com/training/sharing/send?hl=zh-cn#why-to-use-system-sharesheet 请尽可能使用系统提供的共享表单。
+        -->
+        <intent>
+            <action android:name="android.intent.action.SEND" />
+            <!-- Replace with the MIME type that your app works with, if needed. -->
+            <data android:mimeType="*/*" />
+        </intent>
+        <!-- 显示自定义文字选择操作 -->
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT" />
+
+            <data android:mimeType="text/plain" />
+        </intent>
+    </queries> <!-- for Android Keystore -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- android14前台常住服务权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_ACTIVITY_MANAGER" /> <!-- 近场通讯 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.NFC" /> <!-- 位置权限 -->
+    <!-- 后台定位（运行时权限） -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- SMS权限 -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" /> <!-- 电话权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="com.android.voicemail.permission.ADD_VOICEMAIL" />
+    <uses-permission android:name="android.permission.USE_SIP" />
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" /> <!-- 联系人权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="${applicationId}.permission.JOPERATE_MESSAGE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.USB_PERMISSION" />
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.CALL_COMPANION_APP" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND" />
+    <uses-permission android:name="android.permission.REQUEST_COMPANION_USE_DATA_IN_BACKGROUND" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.REQUEST_PASSWORD_COMPLEXITY" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission
+        android:name="android.permission.MANAGE_DOCUMENTS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" /> <!-- Required only if your app targets Android 13. -->
+    <!--
+ Declare one or more the following permissions only if your app needs
+    to access data that's protected by them.
+    -->
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_IMAGES"
+        android:minSdkVersion="33" />
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_AUDIO"
+        android:minSdkVersion="33"
+        tools:ignore="SelectedPhotoAccess" />
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_VIDEO"
+        android:minSdkVersion="33" /> <!-- Required to maintain app compatibility. -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="SelectedPhotoAccess" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.POST_NOTIFICATIONS"
+        android:minSdkVersion="33" /> <!-- https://developer.android.google.cn/guide/topics/ui/notifiers/notification-permission?hl=zh-cn -->
+    <!-- 支持拍照 Support taking photos for inserting on Android https://github.com/siyuan-note/siyuan/issues/10479 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <application
+        android:name="sc.hwd.sillot.kmp.sillot.App"
+        android:allowTaskReparenting="true"
+        android:allowUntrustedActivityEmbedding="true"
+        android:appCategory="social"
+        android:backupInForeground="false"
+        android:debuggable="true"
+        android:enableOnBackInvokedCallback="true"
+        android:hardwareAccelerated="true"
+        android:hasFragileUserData="true"
+        android:icon="@mipmap/ic_launcher"
+        android:isGame="false"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:localeConfig="@xml/locales_config"
+        android:manageSpaceActivity="sc.hwd.sofill.compose.components.ManageSpaceActivity"
+        android:persistent="true"
+        android:requestLegacyExternalStorage="true"
+        android:resizeableActivity="true"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SiYuan"
+        android:usesCleartextTraffic="true"
+        tools:ignore="HardcodedDebugMode"
+        tools:node="merge"
+        tools:targetApi="tiramisu">
+
+        <!-- ref  https://chromium.googlesource.com/chromium/src.git/+/master/android_webview/browser/safe_browsing/README.md -->
+        <meta-data
+            android:name="android.webkit.WebView.EnableSafeBrowsing"
+            android:value="false" /> <!-- ref  https://developer.android.google.cn/guide/topics/large-screens/activity-embedding?hl=zh-cn -->
+        <property
+            android:name="android.window.PROPERTY_ACTIVITY_EMBEDDING_SPLITS_ENABLED"
+            android:value="true" />
+        <property
+            android:name="android.window.PROPERTY_ACTIVITY_EMBEDDING_ALLOW_SYSTEM_OVERRIDE"
+            android:value="false" />
+
+        <activity
+            android:name="sc.hwd.sillot.kmp.producer.MainPro"
+            android:configChanges="mcc|mnc|keyboard|keyboardHidden|screenLayout|orientation|screenSize|smallestScreenSize|uiMode"
+            android:exported="true"
+            android:label="@string/activity_name_MainPro"
+            android:launchMode="singleInstancePerTask"
+            android:screenOrientation="fullSensor"
+            android:supportsPictureInPicture="true"
+            android:taskAffinity="sc.hwd.sillot.kmp.producer.MainPro.task"
+            tools:ignore="DiscouragedApi">
+
+            <!-- ref https://blog.csdn.net/qq_36009027/article/details/94627156 -->
+            <!-- 在其他应用打开 -->
+            <intent-filter android:label="汐洛通用处理助手">
+
+                <!-- 必须设置 -->
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 需要被网页拉起必须设置 -->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 必须小写，包括scheme、host、port、path -->
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+                <data android:host="*" />
+                <data android:pathPattern=".*" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <!-- 分享/发送 -->
+            <intent-filter android:label="汐洛分享助手">
+
+                <!--
+                android.intent.action.SENDTO: 这个动作通常用于发送消息到指定的目标。它通常与mailto:或smsto:等URI方案结合使用，用于发送电子邮件或短信。
+                当使用SENDTO动作时，意图通常会包含一个URI，这个URI指定了消息应该被发送到的地址。
+                -->
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <!--
+                android.intent.action.SEND: 这个动作用于发送数据。它通常用于分享文本、图片或其他类型的数据。当使用SEND动作时，意图通常会包含要发送的数据
+                （通过extra中的Intent.EXTRA_TEXT、Intent.EXTRA_STREAM等字段），但不指定特定的目标地址。系统会显示一个对话框，让用户选择使用哪个应用来发送数据。
+                -->
+                <action android:name="android.intent.action.SENDTO" />
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <!-- 必须设置 -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 需要被网页拉起必须设置 -->
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter android:label="汐洛链接处理助手">
+
+                <!-- 必须设置 -->
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 需要被网页拉起必须设置 -->
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="magnet" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <!-- 设置这个会导致失效          <data android:host="*"/> -->
+            </intent-filter>
+        </activity>
+
+
+        <!-- 将应用主入口活动必置于此处，确保是入口类型活动的最前（小米系统侧边栏等情景也会是入口） -->
+
+        <!-- &lt;!&ndash;        汐洛主入口&ndash;&gt; -->
+        <!-- <activity -->
+        <!-- android:name=".SillotHomeActivity" -->
+        <!-- android:icon="@drawable/icon" -->
+        <!-- android:label="@string/activity_name_SillotHome" -->
+        <!-- android:autoRemoveFromRecents="false" -->
+        <!-- android:configChanges="mcc|mnc|keyboard|keyboardHidden|screenLayout|orientation|screenSize|smallestScreenSize|uiMode" -->
+        <!-- android:exported="true" -->
+        <!-- android:noHistory="false" -->
+        <!-- android:taskAffinity=".sillot.task" -->
+        <!-- android:theme="@style/Theme.SiYuan"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.VIEW" /> -->
+        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+        <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+        <!-- <data android:scheme="sillot" /> -->
+        <!-- <data android:scheme="sisi" /> -->
+        <!-- </intent-filter> -->
+        <!-- &lt;!&ndash; shortcutId | android:name 不能重复&ndash;&gt; -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.shortcuts" -->
+        <!-- android:resource="@xml/shortcuts_1" /> -->
+        <!-- </activity> -->
+        <!-- &lt;!&ndash;   司华入口&ndash;&gt; -->
+        <!-- <activity -->
+        <!-- android:name=".sillot.ui.MainActivity" -->
+        <!-- android:icon="@drawable/icon" -->
+        <!-- android:label="@string/activity_name_Siow" -->
+        <!-- android:autoRemoveFromRecents="false" -->
+        <!-- android:configChanges="mcc|mnc|keyboard|keyboardHidden|screenLayout|orientation|screenSize|smallestScreenSize|uiMode" -->
+        <!-- android:exported="true" -->
+        <!-- android:noHistory="false" -->
+        <!-- android:taskAffinity=".sillot.siow.task" -->
+        <!-- android:theme="@style/Theme.SiYuan"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.VIEW" /> -->
+        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+        <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+        <!-- <data android:scheme="siow" /> -->
+        <!-- </intent-filter> -->
+        <!-- &lt;!&ndash; shortcutId | android:name 不能重复&ndash;&gt; -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.shortcuts" -->
+        <!-- android:resource="@xml/shortcuts_2" /> -->
+        <!-- </activity> -->
+
+        <!-- 入口活动，务必置于入口类型活动的最后，使其作为OriginOS侧边栏显示的活动（小米系统无效） -->
+        <!-- https://github.com/Hi-Windom/Sillot-android/issues/93 -->
+        <activity
+            android:name="sc.hwd.sillot.kmp.sillot.AppActivity"
+            android:autoRemoveFromRecents="true"
+            android:configChanges="mcc|mnc|keyboard|keyboardHidden|screenLayout|orientation|screenSize|smallestScreenSize|uiMode"
+            android:exported="true"
+            android:icon="@drawable/icon"
+            android:label="@string/activity_name_SillotHome"
+            android:launchMode="singleInstancePerTask"
+            android:noHistory="true"
+            android:taskAffinity="sc.hwd.sillot.kmp.sillot.AppActivity"
+            android:theme="@style/Theme.SiYuan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- Support opening assets through other apps on the Android https://github.com/siyuan-note/siyuan/issues/10657 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${provider_authorities}"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+        <!-- 将"清除数据"项变为"管理空间"，自定义数据清除    https://github.com/Hi-Windom/Sillot-android/issues/49 -->
+        <activity
+            android:name="sc.hwd.sofill.compose.components.ManageSpaceActivity"
+            android:configChanges="mcc|mnc|keyboard|keyboardHidden|screenLayout|orientation|screenSize|smallestScreenSize|uiMode"
+            android:exported="true"
+            android:label="@string/activity_name_ManageSpaceActivity" />
+    </application>
+
+</manifest>

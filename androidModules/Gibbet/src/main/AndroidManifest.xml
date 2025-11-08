@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application tools:node="merge">
+
+        <!-- 汐洛绞架（思源笔记定制版）入口 -->
+                <activity
+                    android:name="org.b3log.siyuan.MainActivity"
+                    android:alwaysRetainTaskState="true"
+                    android:autoRemoveFromRecents="false"
+                    android:configChanges="mcc|mnc|keyboard|keyboardHidden|screenLayout|orientation|screenSize|smallestScreenSize|uiMode"
+                    android:documentLaunchMode="intoExisting"
+                    android:exported="true"
+                    android:icon="@drawable/icon_siyuan"
+                    android:label="@string/activity_name_Boot"
+                    android:launchMode="singleInstancePerTask"
+                    android:noHistory="false"
+                    android:taskAffinity="org.b3log.siyuan.MainActivity"
+                    android:windowSoftInputMode="stateHidden|adjustResize">
+
+                    <!--
+                       android:windowSoftInputMode="adjustResize"
+                       是为了解决软键盘遮挡 https://github.com/siyuan-note/siyuan-android/pull/7
+
+                           不要添加 android:launchMode="singleInstance" 否则无法从相册中选择上传
+                           Supports inserting pictures from photo gallery on the Android
+                           https://github.com/siyuan-note/siyuan/issues/9455
+                    -->
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
+                    <intent-filter>
+                        <action android:name="android.intent.action.VIEW" />
+
+                        <category android:name="android.intent.category.DEFAULT" />
+                        <category android:name="android.intent.category.BROWSABLE" />
+
+                        <data android:scheme="siyuan" />
+                    </intent-filter>
+                </activity>
+
+        <service
+            android:name=".services.GibbetKernelService"
+            android:foregroundServiceType="dataSync|location"
+            android:enabled="true"
+            android:exported="true"
+            android:isolatedProcess="false"
+            android:externalService="false"
+            android:permission="TODO">
+            <intent-filter>
+                <action android:name="sc.hwd.sillot.kmp.gibbet.services.GibbetKernelService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+
+
+        <!-- Support opening assets through other apps on the Android https://github.com/siyuan-note/siyuan/issues/10657 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="sc.hwd.sillot.gibbet.fileprovider"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>

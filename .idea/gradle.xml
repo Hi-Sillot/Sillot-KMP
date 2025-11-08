@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/buildSrc" name="buildSrc">
+                <projects>
+                  <project path="$PROJECT_DIR$/buildSrc" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="testRunner" value="CHOOSE_PER_TEST" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/androidApp" />
+            <option value="$PROJECT_DIR$/androidModules/Cyns" />
+            <option value="$PROJECT_DIR$/androidModules/Gibbet" />
+            <option value="$PROJECT_DIR$/androidModules/Hellise" />
+            <option value="$PROJECT_DIR$/androidModules/Hime" />
+            <option value="$PROJECT_DIR$/androidModules/Loftus" />
+            <option value="$PROJECT_DIR$/androidModules/Potter" />
+            <option value="$PROJECT_DIR$/androidModules/Sberrow" />
+            <option value="$PROJECT_DIR$/androidModules/Siow" />
+            <option value="$PROJECT_DIR$/androidModules/Sofly" />
+            <option value="$PROJECT_DIR$/androidModules/Solist" />
+            <option value="$PROJECT_DIR$/androidModules/Spiller" />
+            <option value="$PROJECT_DIR$/androidSofill" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/shared" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+    <option name="parallelModelFetch" value="true" />
+  </component>
+</project>

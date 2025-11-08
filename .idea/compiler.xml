@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="appjoint2-gradle-plugin" target="21" />
+      <module name="appjoint2-gradle-plugin.main" target="21" />
+      <module name="appjoint2-gradle-plugin.test" target="21" />
+      <module name="Sillot-KMP.appjoint2-annotation" target="21" />
+      <module name="Sillot-KMP.appjoint2-annotation.main" target="21" />
+      <module name="Sillot-KMP.appjoint2-annotation.test" target="21" />
+      <module name="Sillot-KMP.ISiSi" target="17" />
+      <module name="Sillot-KMP.ISiSi.main" target="17" />
+      <module name="Sillot-KMP.ISiSi.test" target="17" />
+      <module name="Sillot-KMP.libs.appjoint2-annotation" target="21" />
+      <module name="Sillot-KMP.libs.appjoint2-annotation.main" target="21" />
+      <module name="Sillot-KMP.libs.appjoint2-annotation.test" target="21" />
+      <module name="Sillot-KMP.libs.appjoint2-core" target="21" />
+      <module name="Sillot-KMP.libs.appjoint2-gradle-plugin" target="21" />
+      <module name="Sillot-KMP.libs.appjoint2-gradle-plugin.main" target="21" />
+      <module name="Sillot-KMP.libs.appjoint2-gradle-plugin.test" target="21" />
+      <module name="Sillot-KMP.sberrow" target="21" />
+      <module name="Sillot-KMP.sillotGibbet" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
