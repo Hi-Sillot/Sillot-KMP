@@ -90,3 +90,8 @@ https://blog.csdn.net/FannyZhong/article/details/120828984
 AndroidManifest.xml在Android Studio中打开后，左下角可以切换合并视角。
 
 验证合并是否成功，构建后合并的AndroidManifest.xml文件可在 `build\intermediates\merged_manifest` 目录下找到。
+
+
+## 安卓App Shortcuts的实现
+
+Shortcuts的实现有三种形式：静态快捷方式、动态快捷方式和固定快捷方式。前两者对于多入口应用来说有点麻烦，汐洛只考虑了静态快捷方式（Sofill的DesktopShortcutManager）。

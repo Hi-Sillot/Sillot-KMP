@@ -21,10 +21,6 @@
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
-        <!-- shortcutId 不能重复 -->
-        <meta-data
-            android:name="android.app.shortcuts"
-            android:resource="@xml/shortcuts_3" />
     </activity>
 
 
