@@ -86,6 +86,7 @@ output-*.json
 .kotlin/**/*.json
 **/*.klib
 **/*.jar
+.idea/**/*.iml
 .idea/deploymentTargetSelector.xml
 # 汐洛绞架产物
 **/assets/app.zip

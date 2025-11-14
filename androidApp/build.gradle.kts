@@ -322,7 +322,7 @@ dependencies {
     "RococoImplementation"(project(":androidSofill"))
     // 加载所有模块
     "RococoImplementation"(project(":androidCyns"))
-    "RococoImplementation"(project(":androidSillotGibbet"))
+    "RococoImplementation"(project(":androidGibbet"))
     "RococoImplementation"(project(":androidHellise"))
     "RococoImplementation"(project(":androidHime"))
     "RococoImplementation"(project(":androidLoftus"))

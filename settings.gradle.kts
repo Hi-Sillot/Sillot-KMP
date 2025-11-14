@@ -61,26 +61,12 @@ include(":shared")
 //include(":miniApp")
 
 include(":androidSofill")
-// project引用时只需要 api(project(":androidSillotGibbet")) 而无需受路径影响
-include(":androidSillotGibbet")
-project(":androidSillotGibbet").projectDir = file("androidModules/Gibbet")
-include(":androidPotter")
-project(":androidPotter").projectDir = file("androidModules/Potter")
-include(":androidSiow")
-project(":androidSiow").projectDir = file("androidModules/Siow")
-include(":androidSpiller")
-project(":androidSpiller").projectDir = file("androidModules/Spiller")
-include(":androidLoftus")
-project(":androidLoftus").projectDir = file("androidModules/Loftus")
-include(":androidCyns")
-project(":androidCyns").projectDir = file("androidModules/Cyns")
-include(":androidHellise")
-project(":androidHellise").projectDir = file("androidModules/Hellise")
-include(":androidHime")
-project(":androidHime").projectDir = file("androidModules/Hime")
-include(":androidSofly")
-project(":androidSofly").projectDir = file("androidModules/Sofly")
-include(":androidSolist")
-project(":androidSolist").projectDir = file("androidModules/Solist")
-include(":androidSberrow")
-project(":androidSberrow").projectDir = file("androidModules/Sberrow")
+// 包含androidModules下的所有模块
+file("androidModules").listFiles()?.forEach { moduleDir ->
+    if (moduleDir.isDirectory) {
+        include(":android${moduleDir.name}")
+        // project引用时只需要 include(project(":android${moduleDir.name}")) 而无需受路径影响
+        project(":android${moduleDir.name}").projectDir = file("androidModules/${moduleDir.name}")
+        println("include android${moduleDir.name} dir ${file("androidModules/${moduleDir.name}")}")
+    }
+}
