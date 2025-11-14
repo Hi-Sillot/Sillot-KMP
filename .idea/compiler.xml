@@ -8,6 +8,12 @@
       <module name="Sillot-KMP.appjoint2-annotation" target="21" />
       <module name="Sillot-KMP.appjoint2-annotation.main" target="21" />
       <module name="Sillot-KMP.appjoint2-annotation.test" target="21" />
+      <module name="Sillot-KMP.desktopApp.commonMain" target="17" />
+      <module name="Sillot-KMP.desktopApp.commonTest" target="17" />
+      <module name="Sillot-KMP.desktopApp.desktopMain" target="17" />
+      <module name="Sillot-KMP.desktopApp.desktopTest" target="17" />
+      <module name="Sillot-KMP.desktopApp.main" target="21" />
+      <module name="Sillot-KMP.desktopApp.test" target="21" />
       <module name="Sillot-KMP.ISiSi" target="17" />
       <module name="Sillot-KMP.ISiSi.main" target="17" />
       <module name="Sillot-KMP.ISiSi.test" target="17" />

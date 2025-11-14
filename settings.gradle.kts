@@ -55,11 +55,13 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Sillot-KMP"
-include(":androidApp")
-include(":shared")
+include(":shared") // kuikly ，不支持 windows
 //include(":h5App")
 //include(":miniApp")
 
+include(":shared2") // android + windows + web(plan)
+
+include(":androidApp")
 include(":androidSofill")
 // 包含androidModules下的所有模块
 file("androidModules").listFiles()?.forEach { moduleDir ->
@@ -70,3 +72,8 @@ file("androidModules").listFiles()?.forEach { moduleDir ->
         println("include android${moduleDir.name} dir ${file("androidModules/${moduleDir.name}")}")
     }
 }
+
+include(":desktopApp")
+project(":desktopApp").projectDir = file("sharedApps/desktopApp")
+include(":testkmp")
+project(":testkmp").projectDir = file("sharedApps/testkmp")
