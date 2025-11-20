@@ -4,6 +4,7 @@ androidGradlePlugin = "7.4.2"
 # kotlin_v 设为 1.9+ 会报错 Inconsistent JVM-target compatibility detected for tasks 'compileDebugJavaWithJavac' (17) and 'kaptGenerateStubsDebugKotlin' (1.8).
 # kotlin 2.0+ 不需要手动对齐 Compose Compiler 版本  REF https://developer.android.com/jetpack/androidx/releases/compose-kotlin?hl=zh-cn
 
+jmdns = "3.6.2"
 kotlin = "2.1.21"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -38,6 +39,7 @@ androidxWorkWork = "2.10.0-alpha02"
 ioKtorKtor = "3.2.3"
 jsoupJsoup = "1.18.1"
 ketch = "1.0.0"
+miuix = "0.7.1"
 realmKotlinLib = "3.2.9"
 kotlinxCoroutinesCoreVersion = "1.8.1"
 kotlinxSerializationJsonVersion = "1.9.0"
@@ -73,6 +75,7 @@ jna = "5.18.1"
 
 
 [libraries]
+jmdns = { module = "org.jmdns:jmdns", version.ref = "jmdns" }
 jna = { module = "net.java.dev.jna:jna", version.ref = "jna" }
 jna-platform = { module = "net.java.dev.jna:jna-platform", version.ref = "jna" }
 
@@ -192,6 +195,7 @@ com-tencent-mmkv3 = { module = "com.tencent:mmkv", version.ref = "comTencentMmkv
 #com-tencent-rfix-rfix-android-lib2 = { module = "com.tencent.rfix:RFix-android-lib", version.ref = "tencentRfixAndroidLibVersion" }
 
 # https://shiply.tds.qq.com/docs/doc?id=4008331373
+miuix = { module = "top.yukonga.miuix.kmp:miuix", version.ref = "miuix" }
 shiply-upgrade = { module = "com.tencent.shiply:upgrade", version.ref = "upgradeVersion" }
 shiply-upgrade-ui = { module = "com.tencent.shiply:upgrade-ui", version.ref = "upgradeVersion" }
 shiply-upgrade-diff-pkg-patch = { module = "com.tencent.shiply:upgrade-diff-pkg-patch", version.ref = "upgradeVersion" }

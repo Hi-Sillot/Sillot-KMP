@@ -33,7 +33,9 @@ kotlin {
                 implementation(compose.ui)
                 implementation(compose.components.resources)
 
-                implementation("top.yukonga.miuix.kmp:miuix:0.6.1")
+                implementation(libs.miuix)
+                implementation(libs.jmdns)
+                implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.6")
             }
         }
 

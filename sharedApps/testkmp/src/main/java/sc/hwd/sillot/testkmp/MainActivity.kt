@@ -11,6 +11,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             Greeting("Android")
         }
+        // 申请附近设备权限
+        requestPermissions(arrayOf(android.Manifest.permission.NEARBY_WIFI_DEVICES), 0)
     }
 }
 

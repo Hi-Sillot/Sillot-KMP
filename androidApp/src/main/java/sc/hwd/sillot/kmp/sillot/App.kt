@@ -102,11 +102,6 @@ class App() : SillotApplication() {
     /**
      * 在onCreate方法之前。这个方法的目的是将应用程序的上下文与它的基类上下文关联起来。
      *
-     * Process: sc.hwd.sillot.T, PID: 7021
-     *     java.lang.NoClassDefFoundError: Failed resolution of: Lcom/appjoint2/core/AppJoint2;
-     *     at sc.hwd.sillot.kmp.sillot.App.attachBaseContext(App.kt:158)
-     *     at android.app.Application.attach(Application.java:387)
-     *     at android.app.Instrumentation.newApplication(Instrumentation.java:1353)
      */
     override fun attachBaseContext(base: Context?) {
         Log.w(TAG, "attachBaseContext -> new app base on $base")
