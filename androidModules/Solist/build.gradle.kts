@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "sc.hwd.solist"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 31

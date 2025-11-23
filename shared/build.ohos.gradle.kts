@@ -115,7 +115,7 @@ dependencies {
 
 android {
     namespace = "sc.hwd.sillot.kmp.shared"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 31
         targetSdk = 35

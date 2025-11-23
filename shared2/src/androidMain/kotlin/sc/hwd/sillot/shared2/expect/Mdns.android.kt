@@ -1,5 +1,6 @@
 package sc.hwd.sillot.shared2.expect
 
+import android.os.Build
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import sc.hwd.sillot.shared2.interfaces.ServiceInfo
@@ -7,6 +8,7 @@ import java.net.InetAddress
 import java.net.NetworkInterface
 import javax.jmdns.JmDNS
 import javax.jmdns.ServiceInfo as JmDnsServiceInfo
+
 actual object Mdns {
     private var jmdns: JmDNS? = null
     private var serviceInfo: JmDnsServiceInfo? = null  // ③ 这里用别名
@@ -27,7 +29,7 @@ actual object Mdns {
         }
     }
 
-    actual fun getDeviceName(): String = "Device"  // 简化，避免调用 getLocalHost
+    actual fun getDeviceName(): String = "${Build.BRAND} ${Build.MODEL}"
 
     actual suspend fun discover(type: String): List<sc.hwd.sillot.shared2.interfaces.ServiceInfo> = withContext(Dispatchers.IO) {
 //        val j = JmDNS.create(InetAddress.getLocalHost())
@@ -52,7 +54,16 @@ actual object Mdns {
     }
 
     actual fun unregister() {
-        serviceInfo?.let { jmdns?.unregisterService(it) }
+        serviceInfo?.let {
+            jmdns?.unregisterService(it)
+            println("Unregister service: $it")
+        }
+        jmdns?.close()
+    }
+
+    actual fun unregisterAllServices() {
+        println("Unregister all services")
+        jmdns?.unregisterAllServices();
         jmdns?.close()
     }
 }

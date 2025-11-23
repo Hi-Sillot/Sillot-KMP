@@ -28,7 +28,7 @@ actual object Mdns {
         }
     }
 
-    actual fun getDeviceName(): String = "Device"  // 简化，避免调用 getLocalHost
+    actual fun getDeviceName(): String = "Device"  // TODO： 获取电脑名称
 
     actual suspend fun discover(type: String): List<sc.hwd.sillot.shared2.interfaces.ServiceInfo> = withContext(Dispatchers.IO) {
 //        val j = JmDNS.create(InetAddress.getLocalHost())
@@ -53,7 +53,16 @@ actual object Mdns {
     }
 
     actual fun unregister() {
-        serviceInfo?.let { jmdns?.unregisterService(it) }
+        serviceInfo?.let {
+            jmdns?.unregisterService(it)
+            println("Unregister service: $it")
+        }
+        jmdns?.close()
+    }
+
+    actual fun unregisterAllServices() {
+        println("Unregister all services")
+        jmdns?.unregisterAllServices();
         jmdns?.close()
     }
 }

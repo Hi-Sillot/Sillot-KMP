@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "sc.hwd.siow"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 31

@@ -6,6 +6,8 @@ plugins {
     id("com.android.library")
     id("com.google.devtools.ksp")
     kotlin("plugin.compose")
+    kotlin("plugin.serialization")
+    id("kotlin-parcelize")
 }
 
 kotlin {
@@ -36,15 +38,16 @@ kotlin {
                 implementation(libs.miuix)
                 implementation(libs.jmdns)
                 implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.6")
+                implementation("io.github.vinceglb:filekit-dialogs-compose:0.12.0")
+                implementation(libs.jetbrains.kotlinx.serialization.json)
             }
         }
 
-//        val androidMain by getting {
-//            dependencies {
-//                implementation(libs.androidx.activity.compose)
-//                implementation(libs.androidx.appcompat)
-//            }
-//        }
+        val androidMain by getting {
+            dependencies {
+                project(":androidSofill")
+            }
+        }
 
         val desktopMain by getting {
             dependencies {
@@ -58,7 +61,7 @@ kotlin {
 }
 
 android {
-    compileSdk = 35
+    compileSdk = 36
     namespace = "sc.hwd.sillot.shared2"
 
     defaultConfig {

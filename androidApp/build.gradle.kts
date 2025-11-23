@@ -20,7 +20,7 @@ extra.apply {
 
 android {
     namespace = "SillotMatrix.android"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "sc.hwd.sillot.kmp"
         minSdk = 31

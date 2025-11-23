@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "sc.hwd.hime"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 31

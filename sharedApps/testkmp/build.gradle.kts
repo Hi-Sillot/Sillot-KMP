@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "sc.hwd.sillot.testkmp"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "sc.hwd.sillot.testkmp"

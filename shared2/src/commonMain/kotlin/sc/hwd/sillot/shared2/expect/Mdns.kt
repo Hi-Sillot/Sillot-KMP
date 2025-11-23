@@ -8,4 +8,5 @@ expect object Mdns {
     suspend fun discover(type: String): List<ServiceInfo>
     fun register(type: String, name: String, port: Int)
     fun unregister()
+    fun unregisterAllServices()
 }

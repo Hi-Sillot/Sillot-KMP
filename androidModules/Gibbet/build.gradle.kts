@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "sc.hwd.sillot.gibbet"
-    compileSdk = 35
+    compileSdk = 36
 
     /**
      * 文档 https://developer.android.google.cn/reference/tools/gradle-api/7.2/com/android/build/api/dsl/BuildFeatures

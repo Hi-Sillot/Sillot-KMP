@@ -72,6 +72,7 @@ jetbrainsKotlinJvm = "2.2.0"
 
 # windows平台库
 jna = "5.18.1"
+runtimeDesktop = "1.9.5"
 
 
 [libraries]
@@ -265,6 +266,7 @@ androidx-runner = { group = "androidx.test", name = "runner", version.ref = "run
 androidx-core = { group = "androidx.test", name = "core", version.ref = "core" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-runtime-desktop = { group = "androidx.compose.runtime", name = "runtime-desktop", version.ref = "runtimeDesktop" }
 
 [plugins]
 # alias(libs.plugins.android.application)
